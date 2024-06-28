@@ -17,7 +17,6 @@ export const deleteUser = (req, res) => {
     res.send(" user deleted")
 }
 
-
 export const updateUser = (req, res) => {
     res.send("user updated id")
 }

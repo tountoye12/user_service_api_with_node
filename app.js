@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import userRouter from './routes/user.js'
 
+import {sequelize, connectTodb} from './db.js';
+
 
 const PORT = 3000
 const app = express();
