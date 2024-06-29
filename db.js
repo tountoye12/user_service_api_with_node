@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
         dialect: 'mysql',
         host: 'localhost',
    }
-)
+);
 
 const connectTodb = async () =>  {
     try {
@@ -20,4 +20,4 @@ const connectTodb = async () =>  {
     }
 };
 
-module.exports = {sequelize, connectTodb}
+export {sequelize, connectTodb}

@@ -1,17 +1,32 @@
 
+import User from '../models/user.js'
 
-export const addUser = (req, res) => {
-    res.send("user added id")
+
+import { v4 as uuidv4 } from 'uuid';
+//uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
+
+export const addUser =  async (req, res) => {
+
+    const {firstName, lastName, age} = req.body;
+    const newUser = User.build(
+        {   
+            'id': uuidv4(),
+            'firstName': firstName,
+            'lastName': lastName,
+            'age': age
+        }
+    )
+    await newUser.save();
+    res.status(201).send(newUser); 
 }
-
-export const getAllUsers = (req, res) => {
-    res.send("All user is here")
+export const getAllUsers = async (req, res) => {
+    const users = await User.findAll();
+    res.send(users);
 };
 
 export const getUserById = (req, res) => {
     res.send("Get user by id")
 }
-
 
 export const deleteUser = (req, res) => {
     res.send(" user deleted")
