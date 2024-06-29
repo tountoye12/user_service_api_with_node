@@ -9,6 +9,7 @@ router.get('/', getAllUsers);
 router.post('/', addUser);
 
 router.get('/:id', getUserById);
+
 router.patch('/:id', updateUser);
 router.delete('/:id', deleteUser);
 
